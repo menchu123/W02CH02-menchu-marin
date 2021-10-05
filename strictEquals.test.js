@@ -1,5 +1,5 @@
 const strictEquals = (a, b) => {
-  if (isNaN(a) && isNaN(b)) {
+  if (Object.is(a, NaN) || Object.is(b, NaN)) {
     return false;
   } else if (Object.is(Math.abs(a), 0) && Object.is(Math.abs(b), 0)) {
     return true;
@@ -102,5 +102,17 @@ describe("function strictEquals", () => {
 
     //Assert
     expect(result).toBeFalsy();
+  });
+
+  test("when function strictEquals recieves 'Oleguer' and 'Oleguer', it returns true", () => {
+    //Arrange
+    const data1 = "Oleguer";
+    const data2 = "Oleguer";
+
+    //Act
+    const result = strictEquals(data1, data2);
+
+    //Assert
+    expect(result).toBeTruthy();
   });
 });
