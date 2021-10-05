@@ -1,5 +1,5 @@
 const strictEquals = (a, b) => {
-  if (isNaN(a) && isNaN(b)) {
+  if (Object.is(a, NaN) || Object.is(b, NaN)) {
     return false;
   } else if (Object.is(Math.abs(a), 0) && Object.is(Math.abs(b), 0)) {
     return true;
