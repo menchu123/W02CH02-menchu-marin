@@ -103,4 +103,16 @@ describe("function strictEquals", () => {
     //Assert
     expect(result).toBeFalsy();
   });
+
+  test("when function strictEquals recieves 'Oleguer' and 'Oleguer', it returns true", () => {
+    //Arrange
+    const data1 = "Oleguer";
+    const data2 = "Oleguer";
+
+    //Act
+    const result = strictEquals(data1, data2);
+
+    //Assert
+    expect(result).toBeTruthy();
+  });
 });
