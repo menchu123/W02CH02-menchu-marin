@@ -1,14 +1,10 @@
-console.log(Object.is(1, 1));
-console.log(Object.is(NaN, NaN));
-console.log(Object.is(0, -0));
-console.log(Object.is(-0, 0));
-console.log(Object.is(1, "1"));
-console.log(Object.is(true, false));
-console.log(Object.is(false, false));
-console.log(Object.is("Water", "oil"));
-
 const strictEquals = (a, b) => {
-  return a === b;
+  if (isNaN(a) && isNaN(b)) {
+    return false;
+  } else if (Object.is(Math.abs(a), 0) && Object.is(Math.abs(b), 0)) {
+    return true;
+  }
+  return Object.is(a, b);
 };
 
 describe("function strictEquals", () => {
