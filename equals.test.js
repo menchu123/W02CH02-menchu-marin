@@ -1,12 +1,12 @@
 const strictEquals = (a, b) => {
   if (isNaN(a) && isNaN(b)) {
     return false;
-  } else if (a < 1 && a > -1 && b < 1 && b > -1) {
+  } else if (Object.is(Math.abs(a), 0) && Object.is(Math.abs(b), 0)) {
+    return true;
   }
   return Object.is(a, b);
 };
 
-console.log(-0 < 1 && -0 > -1);
 describe("function strictEquals", () => {
   test("when function strictEquals recieves 1 and 1, it returns true", () => {
     //Arrange
